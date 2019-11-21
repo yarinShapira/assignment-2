@@ -82,6 +82,7 @@ double getbalans(int index){
 
 
 
+
 void B(){
     printf("Account number?: ");
     int index;
