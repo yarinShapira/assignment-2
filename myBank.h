@@ -20,6 +20,3 @@ void P();
 
 
 void E();
-
-
-void jordan();
