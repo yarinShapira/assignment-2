@@ -20,3 +20,6 @@ void P();
 
 
 void E();
+
+
+void jarin();
