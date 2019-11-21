@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "myBank.h"
 #define arrlength 50
 #define firstdeposit 901
 #define balans 1

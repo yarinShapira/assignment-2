@@ -1,4 +1,5 @@
-#include "myBank.c"
+#include "myBank.h"
+#include <stdio.h>
 
 int main(){
     static int flag = 1;
