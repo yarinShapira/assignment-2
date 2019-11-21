@@ -8,6 +8,14 @@
 static double arr[arrlength][2]={{0}};
 
 
+int account(){
+printf("Account number?: ");
+int index;
+scanf("%d", &index);
+return workIndex(index);
+}
+
+
 double amount(){
     double amount;
     printf("Initial deposit?: ");
@@ -51,10 +59,24 @@ int workIndex(int index){
 }
 
 
-double getbalans(int index){
-    
+double getBalans(int index){
+    return arr[index][balans];
 }
 
+
+void printBalans(int index){
+    if (index < 0 || index > 49){
+        printf("Account number is unavailable\n");
+    }
+    else {
+        if(arr[index][openclose] == 0){
+            printf("this account is closed\n");
+        }
+        else{
+        printf("your balans is %.2lf\n", arr[index][balans]);
+        }
+    }
+}
 
 
 
@@ -87,17 +109,7 @@ void B(){
     int index;
     scanf("%d", &index);
     index = index - firstdeposit;
-    if (index < 0 || index > 49){
-        printf("Account number is unavailable\n");
-    }
-    else {
-        if(arr[index][openclose] == 0){
-            printf("this account is closed\n");
-        }
-        else{
-        printf("your balans is %.2lf\n", arr[index][balans]);
-        }
-    }
+
 }
 
 

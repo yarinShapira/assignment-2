@@ -12,7 +12,8 @@ int main(){
             open(num);
             break;
             case 'B' :
-                B();
+                int numAccount = account();
+                printBalans(numAccount);
                 break;
             case 'D' :
                 D();
