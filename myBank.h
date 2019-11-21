@@ -7,7 +7,7 @@ double amount();
 void open();
 
 
-void add(int index, double amount);
+void add(double amount, int index);
 
 
 int getIndex(int index);

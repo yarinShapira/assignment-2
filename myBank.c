@@ -13,7 +13,7 @@ int account(){
 printf("Account number?: ");
 int index;
 scanf("%d", &index);
-return workIndex(index);
+return index - firstdeposit;
 }
 
 
@@ -45,18 +45,35 @@ void open(double amount){
 }
 
 
-void add(int index, double amount){
-    arr[index][balans] = balans + amount;
+void add(double amount, int index){
+    if (arr[index][openclose] != 0){
+        arr[index][balans] = arr[index][balans] + amount;
+        printBalans(index);
+    }
+    else{
+        printf("this account is closed\n");
+    }
+}
+
+
+void Subtraction(double amount, int index){
+if (arr[index][openclose] != 0){
+    if (arr[index][balans] - amount < 0){
+        printf("There is not enough money in the account");
+    }
+    else{
+        arr[index][balans] = arr[index][balans] - amount;
+        printBalans(index);
+    }
+}
+    else{
+        printf("this account is closed\n");
+    }
 }
 
 
 int getIndex(int index){
 return index + firstdeposit;
-}
-
-
-int workIndex(int index){
-    return index - firstdeposit;
 }
 
 
@@ -80,7 +97,22 @@ void printBalans(int index){
 }
 
 
+void close(int index){
+    if(arr[index][openclose] != 0){
+        arr[index][balans] = 0;
+        arr[index][openclose] = 0;
+    }
+}
 
+
+void interest(){
+    for (int i = 0; i < arrlength; i++){
+        if (arr[i][openclose] == 1){
+            
+        }
+    }
+    
+}
 
 
 
