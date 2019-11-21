@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define arrlength 50
 #define firstdeposit 901
-#define balans 1
+#define balance 1
 #define openclose 0
 
 
@@ -38,14 +38,14 @@ void open(double amount){
     }
     else{
         arr[index][openclose] = 1;
-        arr[index][balans] = amount;
+        arr[index][balance] = amount;
         printf("your deposit number is: %d \n", getIndex(index));
     }
 }
 
 
 void add(int index, double amount){
-    arr[index][balans] = balans + amount;
+    arr[index][balance] = balance + amount;
 }
 
 
@@ -59,12 +59,12 @@ int workIndex(int index){
 }
 
 
-double getBalans(int index){
-    return arr[index][balans];
+double getbalance(int index){
+    return arr[index][balance];
 }
 
 
-void printBalans(int index){
+void printBalance(int index){
     if (index < 0 || index > 49){
         printf("Account number is unavailable\n");
     }
@@ -73,37 +73,16 @@ void printBalans(int index){
             printf("this account is closed\n");
         }
         else{
-        printf("your balans is %.2lf\n", arr[index][balans]);
+        printf("your balance is %.2lf\n", arr[index][balance]);
         }
     }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void E(){
     for (int i = 0; i < arrlength; i++){
         if (arr[i][openclose] == 1){
-            arr[i][balans] = 0;
+            arr[i][balance] = 0;
             arr[i][openclose] = 0;
         }
     }

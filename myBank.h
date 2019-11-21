@@ -19,7 +19,7 @@ int workIndex(int index);
 double getBalans(int index);
 
 
-void printBalans(int index);
+void printBalance(int index);
 
 
 

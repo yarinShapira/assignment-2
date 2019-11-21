@@ -1,4 +1,9 @@
-#include "myBank.c"
+#include "myBank.h"
+#include <stdio.h>
+
+
+
+
 
 int main(){
     static int flag = 1;
@@ -11,7 +16,7 @@ int main(){
             open(amount());
             break;
             case 'B' :
-                printBalans(account());
+            printBalance(account());
                 break;
             case 'D' :
                 break;
