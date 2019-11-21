@@ -1,22 +1,38 @@
-void O();
+int account();
 
 
-void B();
+double amount();
 
 
-void D();
+void open();
 
 
-void W();
+void add(int index, double amount);
 
 
-void C();
+int getIndex(int index);
 
 
-void I();
+int workIndex(int index);
 
 
-void P();
+double getBalans(int index);
+
+
+void printBalans(int index);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void E();

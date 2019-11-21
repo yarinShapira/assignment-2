@@ -16,23 +16,18 @@ int main(){
                 printBalans(numAccount);
                 break;
             case 'D' :
-                D();
                 break;
             case 'W' :
-                W();
                 break;
             case 'C' :
-                C();
                 break;
             case 'I' :
-                I();
                 break;
             case 'E' :
                 E();
                 flag = 0;
                 break;
              case 'P' :
-                P();
                 break;
             default:
                 printf("Undetermined action\n");
