@@ -31,7 +31,7 @@ void open(double amount){
     else{
         arr[index][openclose] = 1;
         add(index, amount);
-        printf("your deposit number is: %d \n", printindex(index));
+        printf("your deposit number is: %d \n", getIndex(index));
     }
 }
 
@@ -41,12 +41,19 @@ void add(int index, double amount){
 }
 
 
-int printindex(int index){
+int getIndex(int index){
 return index + firstdeposit;
 }
 
 
+int workIndex(int index){
+    return index - firstdeposit;
+}
 
+
+double getbalans(int index){
+    
+}
 
 
 
