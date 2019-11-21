@@ -1,0 +1,153 @@
+#include <stdio.h>
+#define arrlength 50
+#define firstdeposit 901
+#define balans 1
+#define openclose 0
+
+
+static double arr[arrlength][2]={{0}};
+
+
+void O(){
+    int index;
+    int flag = 1;
+    for (int i = 0; i < arrlength && flag; i++){
+        if(arr[i][openclose] == 0){
+            index = i;
+            flag = 0;
+        }
+    }
+    if (flag){
+        printf("Sorry, we are running out of space \n");
+    }
+    else{
+        double amount;
+        printf("Initial deposit?: ");
+        scanf("%lf", &amount);
+        arr[index][openclose] = 1;
+        arr[index][balans]= amount;
+        printf("your deposit number is: %d \n", index + firstdeposit);
+    }
+}
+
+
+void B(){
+    printf("Account number?: ");
+    int index;
+    scanf("%d", &index);
+    index = index - firstdeposit;
+    if (index < 0 || index > 49){
+        printf("Account number is unavailable\n");
+    }
+    else {
+        if(arr[index][openclose] == 0){
+            printf("this account is closed\n");
+        }
+        else{
+        printf("your balans is %.2lf\n", arr[index][balans]);
+        }
+    }
+}
+
+
+void D(){
+    printf("Account number?: ");
+    int index;
+    scanf("%d", &index);
+    printf("Amount?: ");
+    double amount;
+    scanf("%lf", &amount);
+    index = index - firstdeposit;
+    if (index < 0 || index > 49){
+        printf("Account number is unavailable\n");
+    }
+    else {
+        if(arr[index][openclose] == 0){
+            printf("this account is closed\n");
+        }
+        else{
+            arr[index][balans] = arr[index][balans] + amount;
+        printf("your balans is %.2lf\n", arr[index][balans]);
+        }
+    }
+}
+
+
+void W(){
+    printf("Account number?: ");
+    int index;
+    scanf("%d", &index);
+    printf("Amount?: ");
+    double amount;
+    scanf("%lf", &amount);
+    index = index - firstdeposit;
+    if (index < 0 || index > 49){
+        printf("Account number is unavailable\n");
+    }
+    else {
+        if(arr[index][openclose] == 0){
+            printf("this account is closed\n");
+        }
+        else{
+            if(amount > arr[index][balans]){
+                printf("there not enough money on this Account\n");
+            }
+            else{
+                arr[index][balans] = arr[index][balans] + amount;
+                printf("your balans is %.2lf.\n", arr[index][balans]);
+            }
+        }
+    }
+}
+
+
+void C(){
+    printf("Account number?: ");
+    int index;
+    scanf("%d", &index);
+    index = index - firstdeposit;
+    if (index < 0 || index > 49){
+        printf("Account number is unavailable\n");
+    }
+    else {
+        if (arr[index][openclose] == 0){
+            printf("Account is already close\n");
+        }
+        else{
+            arr[index][balans] = 0;
+            arr[index][openclose] = 0;
+        }
+    }
+}
+
+
+void I(){
+    printf("Interest rate? ");
+    double Interest;
+    scanf("%lf", &Interest);
+    for (int i = 0; i < arrlength; i++){
+        if (arr[i][openclose] == 1){
+            double add = ((arr[i][balans] * Interest)/100);
+            arr[i][balans] = arr[i][balans] + add;
+        }
+    }    
+}
+
+
+void P(){
+    for (int i = 0; i < arrlength; i++){
+        if (arr[i][openclose] == 1){
+            printf("Account number: %d, balans: %.2lf.\n",i+firstdeposit, arr[i][balans]);
+        }
+    }
+}
+
+
+void E(){
+    for (int i = 0; i < arrlength; i++){
+        if (arr[i][openclose] == 1){
+            arr[i][balans] = 0;
+            arr[i][openclose] = 0;
+        }
+    }
+}
