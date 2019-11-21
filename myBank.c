@@ -38,7 +38,7 @@ void open(double amount){
     }
     else{
         arr[index][openclose] = 1;
-        add(index, amount);
+        arr[index][balans] = amount;
         printf("your deposit number is: %d \n", getIndex(index));
     }
 }

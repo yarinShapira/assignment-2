@@ -8,12 +8,10 @@ int main(){
         scanf("%c", &action);
         switch (action){
             case 'O' :
-            double num = amount();
-            open(num);
+            open(amount());
             break;
             case 'B' :
-                int numAccount = account();
-                printBalans(numAccount);
+                printBalans(account());
                 break;
             case 'D' :
                 break;
