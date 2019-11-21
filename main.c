@@ -8,7 +8,8 @@ int main(){
         scanf("%c", &action);
         switch (action){
             case 'O' :
-            O();
+            double num = amount();
+            open(num);
             break;
             case 'B' :
                 B();

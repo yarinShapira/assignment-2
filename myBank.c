@@ -8,7 +8,15 @@
 static double arr[arrlength][2]={{0}};
 
 
-void O(){
+double amount(){
+    double amount;
+    printf("Initial deposit?: ");
+    scanf("%lf", &amount);
+    return amount;
+}
+
+
+void open(double amount){
     int index;
     int flag = 1;
     for (int i = 0; i < arrlength && flag; i++){
@@ -21,14 +29,50 @@ void O(){
         printf("Sorry, we are running out of space \n");
     }
     else{
-        double amount;
-        printf("Initial deposit?: ");
-        scanf("%lf", &amount);
         arr[index][openclose] = 1;
-        arr[index][balans]= amount;
-        printf("your deposit number is: %d \n", index + firstdeposit);
+        add(index, amount);
+        printf("your deposit number is: %d \n", printindex(index));
     }
 }
+
+
+void add(int index, double amount){
+    arr[index][balans] = balans + amount;
+}
+
+
+int printindex(int index){
+return index + firstdeposit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void B(){
