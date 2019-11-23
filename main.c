@@ -1,4 +1,4 @@
-#include "myBank.c"
+#include "myBank.h"
 #include <stdio.h>
 
 

@@ -7,32 +7,24 @@ double amount();
 void open();
 
 
-void add(int index, double amount);
+int add(int index, double amount);
 
 
-int getIndex(int index);
-
-
-int workIndex(int index);
-
-
-double getBalans(int index);
+int Subtraction(int index, double amount);
 
 
 void printBalance(int index);
 
 
+void close(int index);
 
 
+void interest();
 
 
-
-
-
-
-
-
-
+void printAll();
 
 
 void E();
+
+

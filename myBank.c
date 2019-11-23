@@ -52,10 +52,8 @@ int add(int index, double amount){
          printf("this account is close\n");
         return 0;
     }
-    else{
-        arr[index][balance] = arr[index][balance] + amount;
-        return 1;
-    }
+    arr[index][balance] = arr[index][balance] + amount;
+    return 1;
 }
 
 
