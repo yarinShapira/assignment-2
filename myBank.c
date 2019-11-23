@@ -12,19 +12,22 @@ int account(){
 printf("Account number?: ");
 int index;
 scanf("%d", &index);
-return workIndex(index);
+return index - firstdeposit;
 }
 
 
 double amount(){
     double amount;
-    printf("Initial deposit?: ");
+    printf("Amount?: ");
     scanf("%lf", &amount);
     return amount;
 }
 
 
-void open(double amount){
+void open(){
+    double amount;
+    printf("Initial deposit?: ");
+    scanf("%lf", &amount);
     int index;
     int flag = 1;
     for (int i = 0; i < arrlength && flag; i++){
@@ -39,28 +42,40 @@ void open(double amount){
     else{
         arr[index][openclose] = 1;
         arr[index][balance] = amount;
-        printf("your deposit number is: %d \n", getIndex(index));
+        printf("your deposit number is: %d \n", index + firstdeposit);
     }
 }
 
 
-void add(int index, double amount){
-    arr[index][balance] = balance + amount;
+int add(int index, double amount){
+    if (arr[index][openclose] == 0){
+         printf("this account is close\n");
+        return 0;
+    }
+    else{
+        arr[index][balance] = arr[index][balance] + amount;
+        return 1;
+    }
 }
 
 
-int getIndex(int index){
-return index + firstdeposit;
-}
-
-
-int workIndex(int index){
-    return index - firstdeposit;
-}
-
-
-double getbalance(int index){
-    return arr[index][balance];
+int Subtraction(int index, double amount){
+    if (arr[index][openclose] == 0){
+        printf("this account is close\n");
+        return 0;
+    }
+    else{
+        if(arr[index][balance] < amount){
+            printf("There is not enough money in this account\n");
+            return 0;
+        }
+        else{
+            arr[index][balance] = arr[index][balance] - amount;
+            return 1;
+        }
+        
+    }
+    
 }
 
 
@@ -73,17 +88,49 @@ void printBalance(int index){
             printf("this account is closed\n");
         }
         else{
-        printf("your balance is %.2lf\n", arr[index][balance]);
+        printf("in deposit %d the balance is %.2lf\n",index + firstdeposit, arr[index][balance]);
         }
     }
 }
 
 
+void close(int index){
+    if(arr[index][openclose] == 1){
+        arr[index][openclose] = 0;
+        arr[index][balance] = 0;
+    }
+    else{
+        printf("this account is already closed\n");   
+    }
+}
+
+
+void interest(){
+    printf("Interest rate?: ");
+    int rate;
+    scanf("%d", &rate);
+    for (int i = 0; i < arrlength; i++){
+        if (arr[i][openclose == 1]){
+            add(i,arr[i][balance] * rate / 100);
+        }
+    }
+
+}
+
+
+void printAll(){
+    for (int i = 0; i < arrlength; i++){
+        if(arr[i][openclose] == 1){
+           printBalance(i); 
+        }
+    }
+    
+}
+
 void E(){
     for (int i = 0; i < arrlength; i++){
         if (arr[i][openclose] == 1){
-            arr[i][balance] = 0;
-            arr[i][openclose] = 0;
+            close(i);
         }
     }
 }
