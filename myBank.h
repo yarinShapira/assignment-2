@@ -1,3 +1,6 @@
+char act();
+
+
 int account();
 
 

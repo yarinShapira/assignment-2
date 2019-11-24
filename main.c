@@ -3,16 +3,12 @@
 
 
 
-
-
 int main(){
-    static int flag = 1;
-    static double money;
-    static int deposit;
-    while (flag){
-        char action;
-        printf("Transaction type?: ");
-        scanf("%c", &action);
+    double money;
+    int deposit;
+    char action;
+    while(1){
+        action = act();
         switch (action){
             case 'O' :
                 open();
@@ -47,9 +43,9 @@ int main(){
                 break;
             case 'E' :
                 E();
-                flag = 0;
-                break;
+                goto End;
         }
     }
+    End:
     return 0;
 }
