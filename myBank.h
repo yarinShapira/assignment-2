@@ -1,6 +1,3 @@
-char act();
-
-
 int account();
 
 

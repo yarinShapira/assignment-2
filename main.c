@@ -4,15 +4,16 @@
 
 
 int main(){
-    static double money;
-    static int deposit;
-    static char action;
-    Start:
-    action = act();
+    double money;
+    int deposit;
+    char action;
+    while(1){
+        printf("Transaction type?: ");
+        scanf("%c", &action);
         switch (action){
             case 'O' :
                 open();
-                goto Start;
+                break;
             case 'B' :
                 deposit = account();
                 printBalance(deposit);
@@ -44,9 +45,8 @@ int main(){
             case 'E' :
                 E();
                 goto End;
-            default:
-            goto Start;
         }
+    }
     End:
     return 0;
 }

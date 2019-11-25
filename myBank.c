@@ -8,14 +8,6 @@
 static double arr[arrlength][2]={{0}};
 
 
-char act(){
-    char action;
-    printf("Transaction type?: ");
-    scanf("%c", &action);
-    return action;
-}
-
-
 int account(){
 printf("Account number?: ");
 int index;
