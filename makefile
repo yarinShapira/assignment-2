@@ -1,33 +1,16 @@
-all: compile run 
+all: myBank.o main.o  output
 
 
-compile:
-		gcc -Wall -g -o main.o myBank.c main.c
+output: main.o myBank.o
+	gcc -Wall -g -o output main.o myBank.o
 
-mybank.o:
-		gcc -Wall -g -c myBank.c
-run:
-	./main.o
+main.o: main.c
+	gcc -Wall -g -c main.c
 
+myBank.o: myBank.c myBank.h
+	gcc -Wall -g -c myBank.c
 
-# compilemain:
-# 		gcc -Wall -g -o main.o main.c
-
-# compileliba: mybank.o
-# 			ar -rcs libmyBank.a myBank.o
-
-# compilelibs:myBank.o
-# 			gcc -Wall -g -o libmyBank.so -shared myBank.o
-
-# runa:compileliba compilemain	
-# 	gcc -Wall -g -o maina main.o libmyBank.a
-
-# runs:compilelibs compilemain
-# 	gcc -Wall -g -o mains main.c ./libmyBank.so
-
-
-# clean:
-# 	rm -f *.o *.a *.so mains maina
+.PHONY: clean all 
 
 clean:
 	rm -f *.o .a
