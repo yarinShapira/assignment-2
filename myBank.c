@@ -10,18 +10,9 @@ static double arr[arrlength][2]={{0}};
 
 char act(){
     char action;
-    start:
     printf("Transaction type?: ");
-    int temp = scanf("%s", &action);
-    if (temp == 1){
-        if(action == 'O' || action == 'B' || action == 'D' || action == 'W' || action == 'C' || action == 'I' || action == 'P' || action == 'E'){
-            return action;
-        }
-    }
-    else{
-        goto start;
-    }
-    return 0;
+    scanf("%c", &action);
+    return action;
 }
 
 

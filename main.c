@@ -4,15 +4,15 @@
 
 
 int main(){
-    double money;
-    int deposit;
-    char action;
-    while(1){
-        action = act();
+    static double money;
+    static int deposit;
+    static char action;
+    Start:
+    action = act();
         switch (action){
             case 'O' :
                 open();
-                break;
+                goto Start;
             case 'B' :
                 deposit = account();
                 printBalance(deposit);
@@ -44,8 +44,9 @@ int main(){
             case 'E' :
                 E();
                 goto End;
+            default:
+            goto Start;
         }
-    }
     End:
     return 0;
 }
