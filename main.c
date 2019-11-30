@@ -8,8 +8,7 @@ int main(){
     int deposit;
     char action;
     while(1){
-        printf("Transaction type?: ");
-        scanf("%c", &action);
+        action = act();
         switch (action){
             case 'O' :
                 open();

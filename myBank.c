@@ -5,14 +5,26 @@
 #define openclose 0
 
 
-static double arr[arrlength][2]={{0}};
+double arr[arrlength][2] = {{0}};
+
+
+char act(){
+    char action;
+    start:
+    printf("Transaction type?: ");
+    scanf("%c", &action);
+    if(action == 'O' || action == 'B' || action == 'D' || action == 'W' || action == 'C' || action == 'I' || action == 'P' || action == 'E'){
+        return action;
+    }
+    goto start;
+}
 
 
 int account(){
-printf("Account number?: ");
-int index;
-scanf("%d", &index);
-return index - firstdeposit;
+    printf("Account number?: ");
+    int index;
+    scanf("%d", &index);
+    return index - firstdeposit;
 }
 
 

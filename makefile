@@ -1,4 +1,4 @@
-all: myBank.o main.o  output
+all: myBank.o main.o output
 
 
 output: main.o myBank.o
@@ -9,12 +9,9 @@ main.o: main.c
 
 myBank.o: myBank.c myBank.h
 	gcc -Wall -g -c myBank.c
+	
 
 .PHONY: clean all 
 
 clean:
-	rm -f *.o .a
-
-
-
-	
+	rm -f *.o .a output

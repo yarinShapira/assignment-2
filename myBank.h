@@ -1,3 +1,12 @@
+#define arrlength 50
+
+
+extern double arr[arrlength][2];
+
+
+char act();
+
+
 int account();
 
 
