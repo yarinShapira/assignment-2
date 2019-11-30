@@ -21,10 +21,17 @@ char act(){
 
 
 int account(){
+    start:
     printf("Account number?: ");
     int index;
     scanf("%d", &index);
-    return index - firstdeposit;
+    if(index > 950 && index < 0){
+        return index - firstdeposit;
+    }
+    else{
+        goto start;
+    }
+    return 0;
 }
 
 
