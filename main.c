@@ -7,45 +7,48 @@ int main(){
     double money;
     int deposit;
     char action;
-    while(1){
+    Start:
         action = act();
-        switch (action){
-            case 'O' :
-                open();
-                break;
-            case 'B' :
-                deposit = account();
-                printBalance(deposit);
-                break;
-            case 'D' :
-                deposit = account();
-                money = amount();
-                if(add(deposit, money)){
-                    printBalance(deposit);
-                }
-                break;
-            case 'W' :
-                deposit = account();
-                money = amount();
-                if(Subtraction(deposit, money)){
-                    printBalance(deposit);
-                }
-                break;
-            case 'C' :
-                deposit = account();
-                close(deposit);
-                break;
-            case 'I' :
-                interest();
-                break;
-            case 'P' :
-                printAll();
-                break;
-            case 'E' :
-                E();
-                goto End;
+        if (action == 'O'){
+            open();
+            goto Start;
         }
-    }
-    End:
+        if (action == 'B'){
+            deposit = account();
+            printBalance(deposit);
+            goto Start;
+        }
+        if (action == 'D'){
+            deposit = account();
+            money = amount();
+            if(add(deposit, money)){
+                printBalance(deposit);
+            }
+            goto Start;
+        }
+        if (action == 'W'){
+            deposit = account();
+            money = amount();
+            if(Subtraction(deposit, money)){
+                printBalance(deposit);
+            }
+            goto Start;
+        }
+        if (action == 'C'){
+            deposit = account();
+            close(deposit);
+            goto Start;
+        }
+        if (action == 'I'){
+            interest();
+            goto Start;
+        }
+        if (action == 'P'){
+            printAll();
+            goto Start;
+        }
+        if (action == 'E'){
+                E();
+        }
     return 0;
 }

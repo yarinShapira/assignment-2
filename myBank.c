@@ -10,8 +10,9 @@ double arr[arrlength][2] = {{0}};
 
 char act(){
     char action;
-    start:
+
     printf("Transaction type?: ");
+    start:
     scanf("%c", &action);
     if(action == 'O' || action == 'B' || action == 'D' || action == 'W' || action == 'C' || action == 'I' || action == 'P' || action == 'E'){
         return action;
@@ -21,11 +22,12 @@ char act(){
 
 
 int account(){
-    start:
-    printf("Account number?: ");
     int index;
+    start:
+    index = 0;
+    printf("Account number?: ");
     scanf("%d", &index);
-    if(index > 950 && index < 0){
+    if(index < 951 && index > 900){
         return index - firstdeposit;
     }
     else{
@@ -61,7 +63,7 @@ void open(){
     else{
         arr[index][openclose] = 1;
         arr[index][balance] = amount;
-        printf("your deposit number is: %d \n", index + firstdeposit);
+        printf("your account number is: %d \n", index + firstdeposit);
     }
 }
 
