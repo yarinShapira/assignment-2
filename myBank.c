@@ -105,7 +105,7 @@ void printBalance(int index){
             printf("this account is closed\n");
         }
         else{
-        printf("in deposit %d the balance is %.2lf\n",index + firstdeposit, arr[index][balance]);
+        printf("In account number %d the balance is %.2lf\n",index + firstdeposit, arr[index][balance]);
         }
     }
 }
